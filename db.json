@@ -1,0 +1,32 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "Consectetur adipiscing elit",
+      "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu blandit nulla, in mattis leo. Nullam a purus nisl. Praesent consectetur tortor vitae lectus sollicitudin, sed feugiat diam consequat. Ut maximus pulvinar lacus, non sollicitudin sem viverra ac. Sed et eros sapien.",
+      "author": "John Doe",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu blandit nulla, in mattis leo. Nullam a purus nisl. Praesent consectetur tortor vitae lectus sollicitudin, sed feugiat diam consequat. Ut maximus pulvinar lacus, non sollicitudin sem viverra ac. Sed et eros sapien. Aenean id sem mollis lectus convallis tempor vitae sed nisi. Aenean ac felis ac elit facilisis commodo. Etiam dapibus mi vel lectus tempor faucibus. Fusce congue bibendum hendrerit. Donec iaculis mauris ut nunc iaculis dapibus. In auctor a elit ac commodo.",
+      "date": "2025-01-29"
+    },
+    {
+      "id": "2",
+      "title": "Duis eget nisl libero",
+      "summary": "Aenean id eros sem. Duis eget nisl libero. Curabitur pulvinar est eget lorem placerat pretium. Maecenas pulvinar volutpat sagittis. Etiam placerat quam libero, vitae dapibus lorem volutpat sed. Integer euismod bibendum dolor, a facilisis ipsum fringilla vitae. Maecenas sagittis leo ac posuere vestibulum. Quisque eu sodales nibh.",
+      "author": "Jane Smith",
+      "content": "Aenean id eros sem. Duis eget nisl libero. Curabitur pulvinar est eget lorem placerat pretium. Maecenas pulvinar volutpat sagittis. Etiam placerat quam libero, vitae dapibus lorem volutpat sed. Integer euismod bibendum dolor, a facilisis ipsum fringilla vitae. Maecenas sagittis leo ac posuere vestibulum. Quisque eu sodales nibh. Mauris tincidunt lobortis tellus, in tempus nibh elementum quis. Donec in dignissim neque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id malesuada mi. Suspendisse dignissim massa vel nisi aliquam tincidunt. Ut non massa id mauris elementum tempor. Aliquam non eros at odio commodo ultricies nec quis odio.",
+      "date": "2025-01-28"
+    }
+  ],
+  "post-details": [
+    {
+      "id": "1",
+      "text": "a comment about post 1",
+      "postId": "1"
+    },
+    {
+      "id": "2",
+      "text": "another comment about post 1",
+      "postId": "1"
+    }
+  ]
+}
