@@ -8,6 +8,7 @@ const config: Config.InitialOptions = {
   },
   testMatch: ["**/?(*.)+(spec|test).ts?(x)"],
   watch: false,
+  setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
 };
 
 export default config;
