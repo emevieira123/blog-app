@@ -1,89 +1,70 @@
-import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { api } from "../_api";
+import { Endpoints } from "../_api/Endpoints";
+import { postDefaultValues, PostRequest, postSchema } from "../_shared/_types/post";
+import { zodResolver } from '@hookform/resolvers/zod';
 
 export default function AdminPage() {
-  const [formData, setFormData] = useState({
-    title: '',
-    author: '',
-    summary: '',
-    content: '',
+  const { register, handleSubmit, reset, formState: { errors } } = useForm<PostRequest>({
+    resolver: zodResolver(postSchema),
+    defaultValues: {
+      date: new Date().toISOString().slice(0, 10),
+    },
   });
 
-  const handleSubmit = async (e: any) => {
-    e.preventDefault();
-    try {
-      const res = await fetch('/posts', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (res.ok) {
-        setFormData({ title: '', author: '', summary: '', content: '' });
-        alert('Post created successfully!');
-      }
-    } catch (error) {
-      console.error('Error creating post:', error);
-      alert('Error creating post');
-    }
-  };
-
-  const handleChange = (e: any) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+  const onSubmit = async (data: PostRequest) => {
+    await api.post(Endpoints.POSTS, data)
+      .then((resp) => {
+        if (resp.status === 201) {
+          reset(postDefaultValues);
+          alert('Post created successfully!');
+        }
+      }).catch((error) => {
+        console.error('Error creating post:', error);
+        alert('Error creating post');
+      })
   };
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold mb-8">Create New Post</h1>
+      <h1 className="text-3xl font-bold mb-8 text-center">Create New Post</h1>
       <form
-        onSubmit={handleSubmit}
-        className="max-w-4xl space-y-6"
+        onSubmit={handleSubmit(onSubmit)}
+        className="max-w-4xl space-y-6 mx-auto"
       >
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-2">
           <div className="w-full">
             <label className="block mb-2">Title</label>
             <input
-              name="title"
-              value={formData.title}
-              onChange={handleChange}
-              required
+              {...register("title")}
               className='w-full border-1 border-gray-300 rounded-sm px-1 h-10'
             />
+            {errors?.title && <span className="text-red-500">{errors?.title?.message}</span>}
           </div>
           <div className="w-full">
             <label className="block mb-2">Author</label>
             <input
-              name="author"
-              value={formData.author}
-              onChange={handleChange}
-              required
+              {...register("author")}
               className='w-full border-1 border-gray-300 rounded-sm px-1 h-10'
             />
+            {errors?.author && <span className="text-red-500">{errors?.author?.message}</span>}
           </div>
         </div>
         <div className="w-full">
           <label className="block mb-2">Summary</label>
           <textarea
-            name="summary"
-            value={formData.summary}
-            onChange={handleChange}
-            required
-            className='w-full border-1 border-gray-300 rounded-sm px-1 h-24'
+            {...register("summary")}
+            className='w-full border-1 border-gray-300 rounded-sm px-1 h-20'
           />
+          {errors?.summary && <span className="text-red-500">{errors?.summary?.message}</span>}
         </div>
         <div className="w-full">
           <label className="block mb-2">Content</label>
           <textarea
-            name="content"
-            value={formData.content}
-            onChange={handleChange}
-            required
-            className='w-full border-1 border-gray-300 rounded-sm px-1 h-64'
+            {...register("content")}
+            className='w-full border-1 border-gray-300 rounded-sm px-1 h-34'
           />
+          {errors?.content && <span className="text-red-500">{errors?.content?.message}</span>}
         </div>
         <button
           type="submit"
