@@ -1,6 +1,6 @@
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
-import { HeaderMenu } from './_components/HeaderMenu'
+import { HeaderMenu } from './_shared/_components/HeaderMenu'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

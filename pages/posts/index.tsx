@@ -1,4 +1,4 @@
-import { Post } from './_types/post';
+import { Post } from '../_shared/_types/post';
 import { CardPost } from './_components/CardPost';
 
 const Posts = ({ posts }: { posts: Post[] }) => {

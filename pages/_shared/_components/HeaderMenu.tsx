@@ -9,7 +9,9 @@ export function HeaderMenu() {
       <Link
         href={"/"}
         className={
-          `${router.pathname === '/' ? "bg-blue-500" : "bg-white border-1"} px-6 py-1 rounded-md`
+          `${router.pathname === '/'
+            ? "bg-blue-500"
+            : "bg-white border-1"} px-6 py-1 rounded-md hover:bg-blue-500`
         }
       >
         <span className={router.pathname === '/' ? "text-white" : "text-black"}>

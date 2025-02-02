@@ -1,9 +1,9 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import Link from "next/link";
-import { Post } from "../_types/post";
-import { api } from "../../api";
-import { Endpoints } from "../../api/Endpoints";
+import { api } from "../../_api";
+import { Endpoints } from "../../_api/Endpoints";
 import { useRouter } from "next/router";
+import { Post } from "../../_shared/_types/post";
 
 export default function PostDetails({ post }: { post: Post }) {
   const router = useRouter();
@@ -22,7 +22,7 @@ export default function PostDetails({ post }: { post: Post }) {
           {post.title}
         </h1>
         <div className="text-gray-500">
-          By {post.author} • {new Date(post.date).toLocaleDateString()}
+          By {post.author} • {new Date(post?.date as string).toLocaleDateString()}
         </div>
         <div
           dangerouslySetInnerHTML={{ __html: post.content }}
