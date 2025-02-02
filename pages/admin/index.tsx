@@ -17,11 +17,11 @@ export default function AdminPage() {
       .then((resp) => {
         if (resp.status === 201) {
           reset(postDefaultValues);
-          alert('Post created successfully!');
+          // alert('Post created successfully!');
         }
       }).catch((error) => {
         console.error('Error creating post:', error);
-        alert('Error creating post');
+        // alert('Error creating post');
       })
   };
 
@@ -34,16 +34,18 @@ export default function AdminPage() {
       >
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-2">
           <div className="w-full">
-            <label className="block mb-2">Title</label>
+            <label className="block mb-2" htmlFor="title">Title</label>
             <input
+              id="title"
               {...register("title")}
               className='w-full border-1 border-gray-300 rounded-sm px-1 h-10'
             />
             {errors?.title && <span className="text-red-500">{errors?.title?.message}</span>}
           </div>
           <div className="w-full">
-            <label className="block mb-2">Author</label>
+            <label className="block mb-2" htmlFor="author">Author</label>
             <input
+              id="author"
               {...register("author")}
               className='w-full border-1 border-gray-300 rounded-sm px-1 h-10'
             />
@@ -51,16 +53,18 @@ export default function AdminPage() {
           </div>
         </div>
         <div className="w-full">
-          <label className="block mb-2">Summary</label>
+          <label className="block mb-2" htmlFor="summary">Summary</label>
           <textarea
+            id="summary"
             {...register("summary")}
             className='w-full border-1 border-gray-300 rounded-sm px-1 h-20'
           />
           {errors?.summary && <span className="text-red-500">{errors?.summary?.message}</span>}
         </div>
         <div className="w-full">
-          <label className="block mb-2">Content</label>
+          <label className="block mb-2" htmlFor="content">Content</label>
           <textarea
+            id="content"
             {...register("content")}
             className='w-full border-1 border-gray-300 rounded-sm px-1 h-34'
           />
