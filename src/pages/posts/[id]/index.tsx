@@ -27,7 +27,7 @@ export default function PostDetails({ post }: { post: Post }) {
         </div>
         <div
           dangerouslySetInnerHTML={{ __html: post.content }}
-          className="mt-4"
+          className="mt-4 text-lg text-gray-600"
         />
       </article>
     </div>

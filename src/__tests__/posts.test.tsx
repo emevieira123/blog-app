@@ -15,7 +15,7 @@ describe('Posts page', () => {
   it('renders blog posts', () => {
     render(<Posts posts={mockPosts} />);
 
-    expect(screen.getByText('Recents Posts')).toBeInTheDocument();
+    expect(screen.getByText('Blog Mix')).toBeInTheDocument();
     expect(screen.getByText('Test Post 1')).toBeInTheDocument();
     expect(screen.getByText('Test Post 2')).toBeInTheDocument();
     expect(screen.getByText('Test Summary')).toBeInTheDocument();
