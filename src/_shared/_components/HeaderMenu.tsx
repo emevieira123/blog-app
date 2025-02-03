@@ -12,7 +12,7 @@ export function HeaderMenu() {
         className={
           `${router.pathname === '/'
             ? "bg-blue-500"
-            : "bg-white border-1"} px-6 py-1 rounded-md hover:bg-blue-500`
+            : "bg-white border-1"} px-6 py-1 rounded-md`
         }
       >
         <span className={router.pathname === '/' ? "text-white" : "text-black"}>

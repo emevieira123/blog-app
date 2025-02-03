@@ -4,6 +4,7 @@ import { api } from "../../_api";
 import { Endpoints } from "../../_api/Endpoints";
 import { postDefaultValues, PostRequest, postSchema } from "../../_shared/_types/post";
 import { zodResolver } from '@hookform/resolvers/zod';
+import { Bounce, ToastContainer, toast } from 'react-toastify';
 
 export default function AdminPage() {
   const { register, handleSubmit, reset, formState: { errors } } = useForm<PostRequest>({
@@ -18,11 +19,12 @@ export default function AdminPage() {
       .then((resp) => {
         if (resp.status === 201) {
           reset(postDefaultValues);
-          // alert('Post created successfully!');
+          toast.success("Post created successfully!")
         }
+
       }).catch((error) => {
         console.error('Error creating post:', error);
-        // alert('Error creating post');
+        toast.error("Error creating post")
       })
   };
 
@@ -78,6 +80,19 @@ export default function AdminPage() {
           Create Post
         </button>
       </form>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+        transition={Bounce}
+      />
     </div>
   );
 }
