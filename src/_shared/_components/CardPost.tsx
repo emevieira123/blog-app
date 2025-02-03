@@ -7,7 +7,7 @@ interface CardPostProps extends LinkProps {
   date: string;
 }
 export function CardPost({ title, summary, date, ...rest }: CardPostProps) {
-  const formattedDate = new Date(date).toLocaleDateString('pt-BR', {
+  const formattedDate = new Date(date).toLocaleDateString('en-US', {
     day: 'numeric',
     month: 'long',
     year: 'numeric',
@@ -28,7 +28,7 @@ export function CardPost({ title, summary, date, ...rest }: CardPostProps) {
 
       <Link {...rest}>
         <span className='text-blue-500 text-lg font-medium'>
-          {"Ler mais >"}
+          {"Read more >"}
         </span>
       </Link>
     </div>

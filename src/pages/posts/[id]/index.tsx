@@ -13,6 +13,12 @@ export default function PostDetails({ post }: { post: Post }) {
     return <div>Loading informations...</div>;
   }
 
+  const formattedDate = new Date(post?.date as string).toLocaleDateString('en-US', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  });
+
   return (
     <div className="container mx-auto px-4 py-8">
       <Link href="/" className="text-blue-500 hover:underline mb-4 block">
@@ -23,7 +29,7 @@ export default function PostDetails({ post }: { post: Post }) {
           {post.title}
         </h1>
         <div className="text-gray-500">
-          By {post.author} • {new Date(post?.date as string).toLocaleDateString()}
+          By {post.author} • {formattedDate}
         </div>
         <div
           dangerouslySetInnerHTML={{ __html: post.content }}
