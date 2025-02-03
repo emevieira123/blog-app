@@ -10,7 +10,7 @@ export default function PostDetails({ post }: { post: Post }) {
   const router = useRouter();
 
   if (router.isFallback) {
-    return <div>Loading...</div>;
+    return <div>Loading informations...</div>;
   }
 
   return (

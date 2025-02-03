@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
 import { api } from "../../_api";
 import { Endpoints } from "../../_api/Endpoints";
@@ -7,6 +7,8 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { Bounce, ToastContainer, toast } from 'react-toastify';
 
 export default function AdminPage() {
+  const [loading, setLoading] = useState(false);
+
   const { register, handleSubmit, reset, formState: { errors } } = useForm<PostRequest>({
     resolver: zodResolver(postSchema),
     defaultValues: {
@@ -15,6 +17,7 @@ export default function AdminPage() {
   });
 
   const onSubmit = async (data: PostRequest) => {
+    setLoading(true);
     await api.post(Endpoints.POSTS, data)
       .then((resp) => {
         if (resp.status === 201) {
@@ -25,7 +28,9 @@ export default function AdminPage() {
       }).catch((error) => {
         console.error('Error creating post:', error);
         toast.error("Error creating post")
-      })
+      }).finally(() => {
+        setLoading(false);
+      });
   };
 
   return (
@@ -75,9 +80,10 @@ export default function AdminPage() {
         </div>
         <button
           type="submit"
-          className="bg-blue-500 text-white p-2 cursor-pointer rounded-sm hover:bg-blue-600"
+          className="w-[8rem] bg-blue-500 text-white p-2 cursor-pointer rounded-sm hover:bg-blue-600 disabled:bg-blue-300 disabled:cursor-not-allowed"
+          disabled={loading}
         >
-          Create Post
+          {!loading ? "Create Post" : "Saving..."}
         </button>
       </form>
       <ToastContainer
