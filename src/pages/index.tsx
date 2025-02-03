@@ -1,8 +1,9 @@
-import type { GetStaticProps, NextPage } from 'next';
+import React from 'react';
+import type { GetStaticProps } from 'next';
 import Posts from './posts';
-import { Endpoints } from './_api/Endpoints';
-import { api } from './_api';
-import { Post } from './_shared/_types/post';
+import { Endpoints } from '../_api/Endpoints';
+import { api } from '../_api';
+import { Post } from '../_shared/_types/post';
 
 const Home = ({ posts }: { posts: Post[] }) => {
   return <Posts posts={posts} />

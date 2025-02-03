@@ -1,12 +1,13 @@
+import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';
-import AdminPage from '..';
-import { api } from '../../_api';
+import AdminPage from '../pages/admin';
+import { api } from '../_api';
 
 global.fetch = jest.fn() as jest.Mock;
 
-jest.mock('../../_api');
+jest.mock('../_api');
 const mockedApi = api as jest.Mocked<typeof api>;
 
 describe('Admin page', () => {
@@ -43,7 +44,7 @@ describe('Admin page', () => {
         author: 'Test Author',
         summary: 'Test Summary',
         content: 'Test Content',
-        date: "2025-02-02",
+        date: new Date().toISOString().slice(0, 10), //espera sempre a manda a data atual
       });
     });
   });

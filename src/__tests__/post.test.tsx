@@ -1,7 +1,8 @@
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import PostDetails from '..';
-import { mockPosts } from '../../__mocks__/mockPosts';
+import PostDetails from '../pages/posts/[id]';
+import React from 'react';
+import { mockPosts } from '../__mocks__/mockPosts';
 
 jest.mock('next/router', () => ({
   useRouter: () => ({

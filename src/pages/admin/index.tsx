@@ -1,7 +1,8 @@
+import React from 'react';
 import { useForm } from "react-hook-form";
-import { api } from "../_api";
-import { Endpoints } from "../_api/Endpoints";
-import { postDefaultValues, PostRequest, postSchema } from "../_shared/_types/post";
+import { api } from "../../_api";
+import { Endpoints } from "../../_api/Endpoints";
+import { postDefaultValues, PostRequest, postSchema } from "../../_shared/_types/post";
 import { zodResolver } from '@hookform/resolvers/zod';
 
 export default function AdminPage() {

@@ -1,5 +1,6 @@
-import { Post } from '../_shared/_types/post';
-import { CardPost } from './_components/CardPost';
+import React from 'react';
+import { Post } from '../../_shared/_types/post';
+import { CardPost } from '../../_shared/_components/CardPost';
 
 const Posts = ({ posts }: { posts: Post[] }) => {
   return (

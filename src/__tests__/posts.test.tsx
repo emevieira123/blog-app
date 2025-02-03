@@ -1,7 +1,8 @@
+import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { ReactNode } from 'react';
-import Posts from '..';
+import Posts from '../pages/posts';
 import { mockPosts } from '../__mocks__/mockPosts';
 
 jest.mock('next/link', () => {

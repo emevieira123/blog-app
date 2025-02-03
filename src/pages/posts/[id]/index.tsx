@@ -1,9 +1,10 @@
+import React from 'react';
 import { GetStaticPaths, GetStaticProps } from "next";
 import Link from "next/link";
-import { api } from "../../_api";
-import { Endpoints } from "../../_api/Endpoints";
+import { api } from "../../../_api";
+import { Endpoints } from "../../../_api/Endpoints";
 import { useRouter } from "next/router";
-import { Post } from "../../_shared/_types/post";
+import { Post } from "../../../_shared/_types/post";
 
 export default function PostDetails({ post }: { post: Post }) {
   const router = useRouter();

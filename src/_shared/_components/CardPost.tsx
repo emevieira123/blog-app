@@ -1,3 +1,4 @@
+import React from 'react';
 import Link, { LinkProps } from "next/link";
 
 interface CardPostProps extends LinkProps {

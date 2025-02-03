@@ -4,7 +4,7 @@ const config: Config.InitialOptions = {
   preset: "ts-jest",
   testEnvironment: "jsdom",
   transform: {
-    "^.+\\.tsx?$": "ts-jest",
+    "^.+\\.(ts|tsx)$": "babel-jest", // Usa babel-jest para transformar TypeScript/JSX
   },
   testMatch: ["**/?(*.)+(spec|test).ts?(x)"],
   watch: false,
