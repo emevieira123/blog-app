@@ -1,6 +1,6 @@
 # Blog Mix
 
-### Este desenvolvido com o framework [Next.js](https://nextjs.org/).
+### Este projeto foi desenvolvido com o framework [Next.js](https://nextjs.org/).
 
 ## Ações necessárias para rodar o projeto localmente
 
